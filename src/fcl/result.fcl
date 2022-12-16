@@ -14,33 +14,33 @@ VAR_OUTPUT
 END_VAR
 
 FUZZIFY alga			
-	TERM poor := (0, 1) (0.041, 1) (0.083, 0) ;
-	TERM good := (0.083, 0) (0.124,1) (0.165,1) (0.206,0);
-	TERM excellent := (0.165, 0) (0.206, 1) (1, 1);
+	TERM poor := (0, 1) (0.141, 1) (0.282, 0) ;
+	TERM good := (0.282, 0) (0.423,1) (0.564,1) (0.705,0);
+	TERM excellent := (0.564, 0) (0.705, 1) (1, 1);
 END_FUZZIFY
 
 FUZZIFY algb			
-	TERM poor := (0, 1) (0.041, 1) (0.083, 0) ;
-	TERM good := (0.083, 0) (0.124,1) (0.165,1) (0.206,0);
-	TERM excellent := (0.165, 0) (0.206, 1) (1, 1);
+	TERM poor := (0, 1) (0.141, 1) (0.282, 0) ;
+	TERM good := (0.282, 0) (0.423,1) (0.564,1) (0.705,0);
+	TERM excellent := (0.564, 0) (0.705, 1) (1, 1);
 END_FUZZIFY
 
 FUZZIFY algc			
-	TERM poor := (0, 1) (0.041, 1) (0.083, 0) ;
-	TERM good := (0.083, 0) (0.124,1) (0.165,1) (0.206,0);
-	TERM excellent := (0.165, 0) (0.206, 1) (1, 1);
+	TERM poor := (0, 1) (0.141, 1) (0.282, 0) ;
+	TERM good := (0.282, 0) (0.423,1) (0.564,1) (0.705,0);
+	TERM excellent := (0.564, 0) (0.705, 1) (1, 1);
 END_FUZZIFY
 
 FUZZIFY algd			
-	TERM poor := (0, 1) (0.041, 1) (0.083, 0) ;
-	TERM good := (0.083, 0) (0.124,1) (0.165,1) (0.206,0);
-	TERM excellent := (0.165, 0) (0.206, 1) (1, 1);
+	TERM poor := (0, 1) (0.141, 1) (0.282, 0) ;
+	TERM good := (0.282, 0) (0.423,1) (0.564,1) (0.705,0);
+	TERM excellent := (0.564, 0) (0.705, 1) (1, 1);
 END_FUZZIFY
 
 DEFUZZIFY score			
-	TERM poor := (0, 1) (0.041, 1) (0.083, 0) ;
-	TERM good := (0.083, 0) (0.124,1) (0.165,1) (0.206,0);
-	TERM excellent := (0.165, 0) (0.206, 1) (1, 1);
+	TERM poor := (0, 1) (0.141, 1) (0.282, 0) ;
+	TERM good := (0.282, 0) (0.423,1) (0.564,1) (0.705,0);
+	TERM excellent := (0.564, 0) (0.705, 1) (1, 1);
 	METHOD : MM;		
 	DEFAULT := 0;		
 END_DEFUZZIFY
@@ -50,15 +50,13 @@ RULEBLOCK No1
 	ACT : MIN;			
 	ACCU : MAX;			
 
-	RULE 1 : IF alga IS excellent AND algb IS excellent THEN score IS poor;
 	
-	RULE 7 : IF alga IS excellent AND algb IS excellent THEN score IS good;
-	RULE 8 : IF alga IS poor AND algc IS excellent THEN score IS excellent;
-	RULE 9 : IF alga IS good AND algd IS good THEN score IS good;
+	RULE 7 : IF alga IS poor AND algb IS good THEN score IS poor;
+	RULE 9 : IF alga IS excellent AND algd IS poor THEN score IS poor;
 	
-	RULE 13 : IF alga IS excellent AND algb IS excellent THEN score IS poor;
-	RULE 16 : IF algb IS excellent AND algc IS poor THEN score IS poor;
+	RULE 13 : IF alga IS excellent AND algb IS excellent THEN score IS excellent;
 	RULE 17 : IF algb IS excellent AND algd IS good THEN score IS poor;
+	RULE 18 : IF alga IS good THEN score IS poor;
 	
 END_RULEBLOCK
 
