@@ -44,9 +44,7 @@
   year      = {2021},
   url       = {https://doi.org/10.1007/978-3-030-86534-4\_18},
   doi       = {10.1007/978-3-030-86534-4\_18},
-  timestamp = {Thu, 14 Oct 2021 10:06:19 +0200},
-  biburl    = {https://dblp.org/rec/conf/dawak/GilMKH21.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
+  timestamp = {Thu, 14 Oct 2021 10:06:19 +0200}
 }
 ```
 
